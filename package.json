@@ -12,7 +12,8 @@
   ],
   "author": "",
   "license": "",
+  "homepage": "https://github.com/EliasMae/react-native-scratch-view",
   "peerDependencies": {
-    "react-native": "0.51.0"
+    "react-native": "^0.51.0"
   }
 }

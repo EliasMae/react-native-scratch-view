@@ -56,6 +56,7 @@ UIImage *_imagePattern;
 - (void)setRevealPercent:(NSNumber*)revealPercent {
     revealPercentValue = [revealPercent floatValue] / 100;
     isUserSetRevealPercentValue = true;
+    isImageScratchRevealed = false;
 }
 
 - (void)setStrokeWidth:(NSNumber*)strokeWidth {
@@ -64,16 +65,17 @@ UIImage *_imagePattern;
 
 - (void)setImageScratched:(NSDictionary*)imageScratched {
     imageScratchedValue = imageScratched[@"uri"];
+    [self reloadView];
 }
 
 - (void)setImagePattern:(NSDictionary*)imagePattern {
     imagePatternValue = imagePattern[@"uri"];
+    [self reloadView];
 }
 
 #pragma mark - MDScratchImageViewDelegate
 
 - (void)mdScratchImageView:(MDScratchImageView *)scratchImageView didChangeMaskingProgress:(CGFloat)maskingProgress{
-    
     if (maskingProgress >= revealPercentValue && !isImageScratchRevealed) {
         isImageScratchRevealed = true;
         self.onRevealed(@{});

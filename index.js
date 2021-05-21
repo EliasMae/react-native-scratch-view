@@ -1,3 +1,3 @@
-var ScratchImageView = require('./src/ScratchImageView');
+const ScratchImageView = require("./src/ScratchImageView")
 
-module.exports = ScratchImageView;
+module.exports = ScratchImageView
