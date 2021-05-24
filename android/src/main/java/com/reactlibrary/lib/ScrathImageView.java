@@ -30,7 +30,7 @@ public class ScrathImageView extends SurfaceView implements IScratchImageView, S
     private static final String TAG = "WScratchView";
 
     // default value constants
-    private final int DEFAULT_COLOR = 0xff444444; // default color is dark gray
+    private final int DEFAULT_COLOR = 0x00000000; // default color is transparent
     private final int DEFAULT_REVEAL_SIZE = 30;
 
     public static final int DEFAULT_SCRATCH_TEST_SPEED = 4;
