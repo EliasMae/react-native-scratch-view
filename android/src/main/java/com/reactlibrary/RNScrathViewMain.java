@@ -89,8 +89,12 @@ public class RNScrathViewMain extends RelativeLayout {
     }
 
     public void setImageScratched(String uri) {
-        new DownloadImageTask(true)
-                .execute(uri);
+        if(uri.equals("")) {
+
+        } else {
+            new DownloadImageTask(true)
+                    .execute(uri);
+        }
     }
 
     public void setImagePattern(String uri) {
@@ -126,7 +130,7 @@ public class RNScrathViewMain extends RelativeLayout {
                 imagePatternLoadEnd = true;
             }
 
-            if(imageScratchedLoadEnd && imagePatternLoadEnd) {
+            if(imagePatternLoadEnd) {
                 imagePattern.setVisibility(VISIBLE);
 
                 // Retraso un poco la imagen de fondo, porque la imagePattern tarda un poco en cargarla
