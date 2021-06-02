@@ -38,6 +38,7 @@ UIImage *_imagePattern;
     UIImage *imageResize = [self scaleImage:[UIImage imageWithData:dataScratched] toSize:viewSize];
     
     _imageScratched = [[UIImageView alloc] initWithImage:imageResize];
+    _imageScratched.backgroundColor = [UIColor whiteColor];
     
     NSURL *urlPattern = [NSURL URLWithString:imagePatternValue];
     NSData *dataPattern = [NSData dataWithContentsOfURL:urlPattern];
@@ -65,7 +66,13 @@ UIImage *_imagePattern;
 
 - (void)setImageScratched:(NSDictionary*)imageScratched {
     imageScratchedValue = imageScratched[@"uri"];
-    [self reloadView];
+    
+    NSURL *urlScratched = [NSURL URLWithString:imageScratchedValue];
+    NSData *dataScratched = [NSData dataWithContentsOfURL:urlScratched];
+    UIImage *imageResize = [self scaleImage:[UIImage imageWithData:dataScratched] toSize:viewSize];
+    
+    _imageScratched.image = imageResize;
+//    [self reloadView];
 }
 
 - (void)setImagePattern:(NSDictionary*)imagePattern {
